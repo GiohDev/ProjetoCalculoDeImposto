@@ -30,10 +30,10 @@ public class PessoaJuridica extends Contribuinte {
 	@Override
 	public double ImpostoPago() {
       double ImpostoTotal = 0.0;
-		if (NumeroDeFuncionarios <= 10) {
-			ImpostoTotal += RendaAnual * 16;
+		if (NumeroDeFuncionarios <= 0.10) {
+			ImpostoTotal += RendaAnual * 0.16;
 		}else {
-			ImpostoTotal += RendaAnual * 14;
+			ImpostoTotal += RendaAnual * 0.14;
 		}
 		
 		

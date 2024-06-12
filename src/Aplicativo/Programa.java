@@ -16,20 +16,21 @@ public class Programa {
 		Scanner sc = new Scanner(System.in);
 		Locale.setDefault(Locale.US);
 		
+		List<Contribuinte> list = new ArrayList<>();
 		System.out.print("Digite o numero de contribuintes: ");
 		int n = sc.nextInt();
 		
 		for (int i = 0; i<n ; i++) {
 			
-			System.out.println("Contribuinte #"+(i+1)+ "dados:");
-			System.out.print("Pessoa Fisica ou juridica (f/j)?");
-			sc.nextLine();
-			char escolha = sc.nextLine().charAt(0);
+			System.out.println("Contribuinte # "+(i+1)+ " dados:");
+			System.out.print("Pessoa Fisica ou juridica (f/j)?");			
+			char escolha = sc.next().charAt(0);
 			
-			List<Contribuinte> list = new ArrayList<>(); 
-			
+			 
 			System.out.print("Nome: ");
+			sc.nextLine();
 			String nome = sc.nextLine();
+			
 			System.out.print("Renda Anual: ");
 			Double rendaAnual = sc.nextDouble();
 			
@@ -45,20 +46,22 @@ public class Programa {
 				
 				PessoaJuridica pj = new PessoaJuridica(nome , rendaAnual, numeroDeFuncionarios );
 				list.add(pj);
-			}
+		}
 			
 			
-			System.out.println("Impostos dos contribuintes:" );
 			
+	}
+            System.out.println("Impostos dos contribuintes:" );
+            Double impostoTotal = 0.0;
 			for (Contribuinte c : list) {
 				System.out.println(c.getName() + "$ "+String.format("%.2f", c.ImpostoPago()));
 				
-			}
-			
-			sc.close();
-			
+			impostoTotal += c.ImpostoPago();
 		}
-		
+		    System.out.print("Total dos impostos: " + String.format("%.2f", impostoTotal) );
+		    
+		    
+		sc.close();
 	
 	}
 

@@ -40,9 +40,9 @@ public class PessoaFisica extends Contribuinte {
 	public double ImpostoPago() {
  	   double ImpostoTotal = 0.0;
 		if (RendaAnual < 20000.00) {
-			ImpostoTotal += RendaAnual * 15;
+			ImpostoTotal += RendaAnual * 0.15;
 		}else {
-			ImpostoTotal += (RendaAnual * 25) - (GastosSaude * 50);
+			ImpostoTotal += (RendaAnual * 0.25) - (GastosSaude * 0.50);
 		}
 		
 		return ImpostoTotal;
